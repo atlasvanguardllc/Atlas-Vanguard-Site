@@ -1,7 +1,11 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail, ArrowRight } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
+const SERVICE_ID = 'service_9mv8559'
+const TEMPLATE_ID = 'template_wlhulli'
+const PUBLIC_KEY = 'uMyrCnWltXZRO2KR8'
 
 const info = [
   { icon: Mail, label: 'Email', value: 'atlasvanguardllc@gmail.com' },
@@ -37,12 +41,34 @@ function FormField({ label, children }) {
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const [focused, setFocused] = useState(null)
   const [btnHovered, setBtnHovered] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
+    setLoading(true)
+    setError(null)
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: form.name,
+          email: form.email,
+          message: form.company
+            ? `Company: ${form.company}\n\nMessage:\n${form.message}`
+            : form.message,
+        },
+        PUBLIC_KEY
+      )
+      setSent(true)
+    } catch {
+      setError('Something went wrong. Please try again or email us directly at atlasvanguardllc@gmail.com.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const inputBase = {
@@ -267,28 +293,38 @@ export default function Contact() {
                   />
                 </FormField>
 
+                {error && (
+                  <p className="text-sm leading-relaxed" style={{ color: 'rgba(232,100,100,0.85)' }}>
+                    {error}
+                  </p>
+                )}
+
                 <div className="pt-2">
                   <motion.button
                     type="submit"
-                    whileHover={{ y: -2 }}
-                    onHoverStart={() => setBtnHovered(true)}
+                    disabled={loading}
+                    whileHover={loading ? {} : { y: -2 }}
+                    onHoverStart={() => !loading && setBtnHovered(true)}
                     onHoverEnd={() => setBtnHovered(false)}
                     className="flex items-center gap-3 w-full justify-center px-8 py-5 text-sm tracking-[0.18em] uppercase font-semibold"
                     style={{
-                      background: btnHovered ? '#E8C97A' : '#C9A84C',
+                      background: loading ? 'rgba(201,168,76,0.5)' : btnHovered ? '#E8C97A' : '#C9A84C',
                       color: '#080808',
-                      boxShadow: btnHovered ? '0 4px 24px rgba(201,168,76,0.18)' : 'none',
+                      boxShadow: btnHovered && !loading ? '0 4px 24px rgba(201,168,76,0.18)' : 'none',
                       transition: 'background 0.35s ease, box-shadow 0.35s ease',
+                      cursor: loading ? 'not-allowed' : 'pointer',
                     }}
                   >
-                    Submit Inquiry
-                    <ArrowRight
-                      size={15}
-                      style={{
-                        transform: btnHovered ? 'translateX(4px)' : 'translateX(0)',
-                        transition: 'transform 0.3s ease',
-                      }}
-                    />
+                    {loading ? 'Sending…' : 'Submit Inquiry'}
+                    {!loading && (
+                      <ArrowRight
+                        size={15}
+                        style={{
+                          transform: btnHovered ? 'translateX(4px)' : 'translateX(0)',
+                          transition: 'transform 0.3s ease',
+                        }}
+                      />
+                    )}
                   </motion.button>
                 </div>
               </form>
