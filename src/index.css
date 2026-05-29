@@ -21,11 +21,8 @@
 
   /* Gold cursor on desktop */
   @media (pointer: fine) {
-    * {
-      cursor: url('/cursor-default.svg') 3 2, auto;
-    }
-    a, button, [role="button"], input[type="submit"], label, select, input[type="checkbox"], input[type="radio"] {
-      cursor: url('/cursor-pointer.svg') 8 2, pointer;
+    *, a, button, [role="button"], input[type="submit"], label, select {
+      cursor: url('/cursor-default.svg') 3 2, auto !important;
     }
   }
 
