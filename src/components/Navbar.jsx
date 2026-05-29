@@ -3,19 +3,30 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'About', href: '#about', id: 'about' },
+  { label: 'Services', href: '#services', id: 'services' },
+  { label: 'Why Us', href: '#why-us', id: 'why-us' },
+  { label: 'Contact', href: '#contact', id: 'contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40)
+
+      // Determine active section
+      const offsets = links.map(({ id }) => {
+        const el = document.getElementById(id)
+        return { id, top: el ? el.getBoundingClientRect().top : Infinity }
+      })
+      const current = offsets.filter(({ top }) => top <= 120).pop()
+      setActive(current ? current.id : '')
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -53,12 +64,18 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm tracking-widest uppercase text-white/60 hover:text-white transition-colors duration-300 relative group"
+              className="text-sm tracking-widest uppercase transition-colors duration-300 relative group whitespace-nowrap"
+              style={{ color: active === l.id ? '#C9A84C' : 'rgba(255,255,255,0.6)' }}
+              onMouseEnter={(e) => { if (active !== l.id) e.currentTarget.style.color = '#fff' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = active === l.id ? '#C9A84C' : 'rgba(255,255,255,0.6)' }}
             >
               {l.label}
               <span
-                className="absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
-                style={{ background: '#C9A84C' }}
+                className="absolute -bottom-0.5 left-0 h-px transition-all duration-300"
+                style={{
+                  width: active === l.id ? '100%' : '0%',
+                  background: '#C9A84C',
+                }}
               />
             </a>
           ))}
