@@ -8,6 +8,7 @@ import CTA from './components/CTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
+import PageCurtain from './components/PageCurtain'
 
 function Home() {
   return (
@@ -27,6 +28,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
+      <PageCurtain />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
