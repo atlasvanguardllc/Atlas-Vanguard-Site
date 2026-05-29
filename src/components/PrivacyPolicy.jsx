@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
 
-          <p className="text-white/35 text-sm tracking-wide mb-16">
+          <p className="text-white/52 text-sm tracking-wide mb-16">
             Effective Date: January 1, 2025 &nbsp;·&nbsp; Atlas Vanguard LLC
           </p>
 
@@ -113,7 +113,7 @@ export default function PrivacyPolicy() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-white/50 text-base leading-relaxed mb-16"
+          className="text-white/65 text-base leading-relaxed mb-16"
         >
           Atlas Vanguard LLC ("we," "our," or "us") is committed to protecting your privacy.
           This Privacy Policy explains how we collect, use, and safeguard the information you
@@ -143,7 +143,7 @@ export default function PrivacyPolicy() {
                   {section.title}
                 </h2>
               </div>
-              <p className="text-white/45 text-sm leading-relaxed whitespace-pre-line pl-8">
+              <p className="text-white/62 text-sm leading-relaxed whitespace-pre-line pl-8">
                 {section.content}
               </p>
             </motion.div>

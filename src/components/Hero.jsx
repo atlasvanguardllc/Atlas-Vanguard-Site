@@ -181,7 +181,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-white/50 text-lg max-w-2xl mx-auto mb-6 leading-relaxed"
+          className="text-white/68 text-lg max-w-2xl mx-auto mb-6 leading-relaxed"
           style={{ letterSpacing: '0.02em' }}
         >
           Where premium brands establish their digital presence.

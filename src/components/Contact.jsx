@@ -30,7 +30,7 @@ function FadeUp({ children, delay = 0, className = '' }) {
 function FormField({ label, children }) {
   return (
     <div>
-      <label className="block text-[10px] tracking-[0.3em] uppercase text-white/30 mb-2.5">
+      <label className="block text-[10px] tracking-[0.3em] uppercase text-white/50 mb-2.5">
         {label}
       </label>
       {children}
@@ -178,7 +178,7 @@ export default function Contact() {
             </FadeUp>
 
             <FadeUp delay={0.15}>
-              <p className="text-white/40 text-base leading-relaxed mb-12">
+              <p className="text-white/62 text-base leading-relaxed mb-12">
                 Built with precision and executed with purpose, our websites are designed
                 to elevate your brand above standard.
               </p>
@@ -207,7 +207,7 @@ export default function Contact() {
                       <item.icon size={16} />
                     </div>
                     <div>
-                      <div className="text-white/28 text-[10px] tracking-[0.3em] uppercase mb-1">{item.label}</div>
+                      <div className="text-white/45 text-[10px] tracking-[0.3em] uppercase mb-1">{item.label}</div>
                       <div className="text-white/80 text-base">{item.value}</div>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ export default function Contact() {
                 >
                   Inquiry Received
                 </h3>
-                <p className="text-white/40 text-sm leading-relaxed">
+                <p className="text-white/62 text-sm leading-relaxed">
                   Thank you for reaching out. We'll be in touch shortly.
                 </p>
               </div>

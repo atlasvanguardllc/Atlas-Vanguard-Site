@@ -96,7 +96,7 @@ export default function Process() {
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <p className="text-white/40 text-lg leading-relaxed">
+            <p className="text-white/62 text-lg leading-relaxed">
               Every project follows a structured, proven process designed to deliver results
               that exceed expectations — on time and with precision.
             </p>
@@ -162,7 +162,7 @@ export default function Process() {
                 >
                   {step.title}
                 </h3>
-                <p className="text-white/40 text-sm leading-relaxed">
+                <p className="text-white/62 text-sm leading-relaxed">
                   {step.desc}
                 </p>
 

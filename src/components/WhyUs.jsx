@@ -76,7 +76,7 @@ function PillarCard({ card, delay }) {
       >
         {card.title}
       </h3>
-      <p className="text-white/45 text-sm leading-relaxed">{card.desc}</p>
+      <p className="text-white/65 text-sm leading-relaxed">{card.desc}</p>
 
       {/* Gold corner */}
       <div
@@ -148,7 +148,7 @@ export default function WhyUs() {
             </FadeUp>
 
             <FadeUp delay={0.15}>
-              <p className="text-white/40 text-base leading-relaxed mb-10">
+              <p className="text-white/62 text-base leading-relaxed mb-10">
                 Most agencies use templates, delegate to junior staff, and move on after launch.
                 Atlas Vanguard operates differently — with original work, direct access, and a
                 long-term commitment to your brand.
@@ -159,7 +159,7 @@ export default function WhyUs() {
             <FadeUp delay={0.2}>
               {/* Header row */}
               <div className="grid grid-cols-2 mb-3">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-white/28 pl-2">Atlas Vanguard</div>
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/48 pl-2">Atlas Vanguard</div>
                 <div className="text-[10px] tracking-[0.3em] uppercase text-white/20 pl-2">Typical Agency</div>
               </div>
 
@@ -198,7 +198,7 @@ export default function WhyUs() {
           {/* Right — 3 concrete pillar cards */}
           <div className="space-y-5">
             <FadeUp delay={0.1}>
-              <p className="text-[10px] tracking-[0.35em] uppercase text-white/28 mb-6">
+              <p className="text-[10px] tracking-[0.35em] uppercase text-white/45 mb-6">
                 What That Means for You
               </p>
             </FadeUp>

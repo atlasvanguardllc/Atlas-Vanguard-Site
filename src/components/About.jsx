@@ -56,7 +56,7 @@ function ValueCard({ v, i, inView }) {
       >
         {v.title}
       </h3>
-      <p className="text-white/40 text-sm leading-relaxed">{v.desc}</p>
+      <p className="text-white/62 text-sm leading-relaxed">{v.desc}</p>
     </motion.div>
   )
 }
@@ -106,7 +106,7 @@ export default function About() {
             </FadeUp>
 
             <FadeUp delay={0.2}>
-              <p className="text-white/50 text-lg leading-relaxed mb-6">
+              <p className="text-white/68 text-lg leading-relaxed mb-6">
                 Atlas Vanguard LLC was founded with a singular objective: to build digital
                 platforms that position companies ahead of their competition. We specialize
                 in elite web design, strategic branding, and high-performance online
@@ -115,7 +115,7 @@ export default function About() {
             </FadeUp>
 
             <FadeUp delay={0.3}>
-              <p className="text-white/40 text-base leading-relaxed mb-10">
+              <p className="text-white/58 text-base leading-relaxed mb-10">
                 At Atlas Vanguard, we work with businesses that expect more than average.
                 We build for companies that want to lead their market, elevate their brand,
                 and operate with a competitive edge.

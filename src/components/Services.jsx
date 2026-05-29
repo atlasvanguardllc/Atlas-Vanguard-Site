@@ -93,7 +93,7 @@ function ServiceCard({ icon: Icon, tag, title, desc, index }) {
       </h3>
 
       {/* Description */}
-      <p className="text-white/40 text-sm leading-relaxed">{desc}</p>
+      <p className="text-white/62 text-sm leading-relaxed">{desc}</p>
 
       {/* Bottom accent line */}
       <motion.div
@@ -169,7 +169,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-white/40 text-lg leading-relaxed"
+            className="text-white/62 text-lg leading-relaxed"
           >
             Every digital experience we create is strategically designed to elevate brands
             with precision, performance, and distinction.
