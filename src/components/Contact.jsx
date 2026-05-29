@@ -161,7 +161,7 @@ export default function Contact() {
             <FadeUp delay={0.1}>
               <h2
                 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
-                style={{ fontFamily: 'Georgia, serif' }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 Let's Build a Presence That{' '}
                 <span
@@ -231,7 +231,7 @@ export default function Contact() {
                 </div>
                 <h3
                   className="text-white text-xl font-semibold mb-3"
-                  style={{ fontFamily: 'Georgia, serif' }}
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                 >
                   Inquiry Received
                 </h3>

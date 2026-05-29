@@ -57,7 +57,7 @@ export default function CTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl md:text-6xl font-bold text-white mb-7"
-          style={{ fontFamily: 'Georgia, serif', lineHeight: 1.08 }}
+          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1.08 }}
         >
           A Refined Digital Presence{' '}
           <span

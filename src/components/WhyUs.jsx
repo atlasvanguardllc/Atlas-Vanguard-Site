@@ -139,7 +139,7 @@ export default function WhyUs() {
             <FadeUp delay={0.1}>
               <h2
                 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8"
-                style={{ fontFamily: 'Georgia, serif' }}
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
                 A Higher Standard of{' '}
                 <span

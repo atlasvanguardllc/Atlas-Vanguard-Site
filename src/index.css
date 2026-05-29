@@ -19,6 +19,13 @@
     overflow-x: hidden;
   }
 
+  /* Hide native cursor on desktop for custom cursor */
+  @media (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
   ::selection {
     background: rgba(201, 168, 76, 0.3);
     color: #f0ede8;

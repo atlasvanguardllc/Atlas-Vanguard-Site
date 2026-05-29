@@ -150,7 +150,7 @@ export default function Services() {
             animate={titleInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
-            style={{ fontFamily: 'Georgia, serif' }}
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             Elevating Brands Through{' '}
             <span

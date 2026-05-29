@@ -158,7 +158,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[0.95] tracking-tight mb-4"
-          style={{ fontFamily: 'Georgia, serif' }}
+          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
         >
           <span className="text-white">Precision.</span>
           <br />

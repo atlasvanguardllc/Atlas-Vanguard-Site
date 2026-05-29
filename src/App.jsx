@@ -9,6 +9,8 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import PageCurtain from './components/PageCurtain'
+import Process from './components/Process'
+import CustomCursor from './components/CustomCursor'
 
 function Home() {
   return (
@@ -17,6 +19,7 @@ function Home() {
       <Hero />
       <About />
       <Services />
+      <Process />
       <WhyUs />
       <CTA />
       <Contact />
@@ -28,6 +31,7 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
+      <CustomCursor />
       <PageCurtain />
       <Routes>
         <Route path="/" element={<Home />} />
