@@ -140,7 +140,7 @@ export default function About() {
           </div>
 
           {/* Right: values grid */}
-          <div ref={ref} className="grid grid-cols-2 gap-4">
+          <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {values.map((v, i) => (
               <ValueCard key={v.title} v={v} i={i} inView={inView} />
             ))}

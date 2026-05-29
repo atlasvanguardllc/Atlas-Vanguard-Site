@@ -52,26 +52,26 @@ export default function Hero() {
         }}
       />
 
-      {/* Corner decorations */}
-      <div className="absolute top-24 left-8 lg:left-16 w-16 h-16 pointer-events-none"
+      {/* Corner decorations — hidden on mobile */}
+      <div className="hidden sm:block absolute top-24 left-8 lg:left-16 w-16 h-16 pointer-events-none"
         style={{ borderLeft: '1px solid rgba(201,168,76,0.3)', borderTop: '1px solid rgba(201,168,76,0.3)' }} />
-      <div className="absolute top-24 right-8 lg:right-16 w-16 h-16 pointer-events-none"
+      <div className="hidden sm:block absolute top-24 right-8 lg:right-16 w-16 h-16 pointer-events-none"
         style={{ borderRight: '1px solid rgba(201,168,76,0.3)', borderTop: '1px solid rgba(201,168,76,0.3)' }} />
-      <div className="absolute bottom-16 left-8 lg:left-16 w-16 h-16 pointer-events-none"
+      <div className="hidden sm:block absolute bottom-16 left-8 lg:left-16 w-16 h-16 pointer-events-none"
         style={{ borderLeft: '1px solid rgba(201,168,76,0.3)', borderBottom: '1px solid rgba(201,168,76,0.3)' }} />
-      <div className="absolute bottom-16 right-8 lg:right-16 w-16 h-16 pointer-events-none"
+      <div className="hidden sm:block absolute bottom-16 right-8 lg:right-16 w-16 h-16 pointer-events-none"
         style={{ borderRight: '1px solid rgba(201,168,76,0.3)', borderBottom: '1px solid rgba(201,168,76,0.3)' }} />
 
       <motion.div
         style={{ y, opacity }}
         className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center"
       >
-        {/* Eyebrow */}
+        {/* Eyebrow — hidden on mobile to avoid duplication with navbar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="flex items-center justify-center gap-4 mb-4"
+          className="hidden sm:flex items-center justify-center gap-4 mb-4"
         >
           <span className="h-px w-12" style={{ background: '#C9A84C' }} />
           <span className="text-xs tracking-[0.4em] uppercase font-medium" style={{ color: '#C9A84C' }}>
@@ -97,8 +97,8 @@ export default function Hero() {
               animate={{ opacity: [0.7, 1, 0.7], scale: [0.9, 1.22, 0.9] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               style={{
-                width: '420px',
-                height: '420px',
+                width: 'min(420px, 100vw)',
+                height: 'min(420px, 100vw)',
                 background: 'radial-gradient(ellipse at 50% 65%, rgba(201,168,76,0.6) 0%, rgba(180,130,30,0.28) 45%, transparent 70%)',
               }}
             />
@@ -107,8 +107,8 @@ export default function Hero() {
               animate={{ opacity: [0.65, 1, 0.65], scale: [0.92, 1.2, 0.92] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               style={{
-                width: '320px',
-                height: '320px',
+                width: 'min(320px, 85vw)',
+                height: 'min(320px, 85vw)',
                 background: 'radial-gradient(ellipse at 50% 60%, rgba(232,201,122,0.65) 0%, rgba(201,168,76,0.35) 40%, transparent 70%)',
               }}
             />
@@ -117,8 +117,8 @@ export default function Hero() {
               animate={{ opacity: [0.65, 1, 0.65], scale: [0.94, 1.15, 0.94] }}
               transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 1.6 }}
               style={{
-                width: '240px',
-                height: '240px',
+                width: 'min(240px, 70vw)',
+                height: 'min(240px, 70vw)',
                 background: 'radial-gradient(ellipse at 50% 55%, rgba(255,220,100,0.75) 0%, rgba(201,168,76,0.45) 50%, transparent 75%)',
               }}
             />
@@ -142,12 +142,12 @@ export default function Hero() {
             <motion.img
               src="/logo.png"
               alt="Atlas Vanguard LLC"
-              className="relative object-contain"
+              className="relative object-contain w-[200px] h-[200px] sm:w-[275px] sm:h-[275px]"
               initial={{ opacity: 0, scale: 0.75 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.3, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               variants={{ hover: { scale: 1.07, transition: { duration: 0.35 } } }}
-              style={{ width: '275px', height: '275px', zIndex: 1 }}
+              style={{ zIndex: 1 }}
             />
           </motion.div>
         </motion.div>
@@ -228,9 +228,9 @@ export default function Hero() {
             '3-Week Avg Delivery',
             'Ongoing Support',
           ].map((label, i) => (
-            <div key={i} className={`text-center px-6 ${i < 2 ? 'border-r border-white/10' : ''}`}>
+            <div key={i} className={`text-center px-2 sm:px-6 ${i < 2 ? 'border-r border-white/10' : ''}`}>
               <div
-                className="text-sm tracking-[0.2em] uppercase font-semibold"
+                className="text-[10px] sm:text-sm tracking-[0.08em] sm:tracking-[0.2em] uppercase font-semibold leading-tight"
                 style={{
                   background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
                   WebkitBackgroundClip: 'text',

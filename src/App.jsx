@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -6,8 +7,9 @@ import WhyUs from './components/WhyUs'
 import CTA from './components/CTA'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import PrivacyPolicy from './components/PrivacyPolicy'
 
-export default function App() {
+function Home() {
   return (
     <div style={{ background: '#080808', minHeight: '100vh' }}>
       <Navbar />
@@ -19,5 +21,16 @@ export default function App() {
       <Contact />
       <Footer />
     </div>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

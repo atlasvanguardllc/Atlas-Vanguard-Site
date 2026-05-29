@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -69,10 +70,21 @@ export default function Footer() {
             />
           </div>
 
-          {/* Copyright */}
-          <p className="text-white/18 text-[11px] tracking-[0.22em] uppercase">
-            &copy; {year} Atlas Vanguard LLC. All rights reserved.
-          </p>
+          {/* Copyright + Privacy */}
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <p className="text-white/18 text-[11px] tracking-[0.22em] uppercase">
+              &copy; {year} Atlas Vanguard LLC. All rights reserved.
+            </p>
+            <Link
+              to="/privacy"
+              className="text-[11px] tracking-[0.22em] uppercase transition-colors duration-300"
+              style={{ color: 'rgba(201,168,76,0.35)' }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = 'rgba(201,168,76,0.7)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = 'rgba(201,168,76,0.35)' }}
+            >
+              Privacy Policy
+            </Link>
+          </div>
 
         </div>
       </div>
