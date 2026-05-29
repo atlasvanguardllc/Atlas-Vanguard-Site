@@ -19,13 +19,6 @@
     overflow-x: hidden;
   }
 
-  /* Gold cursor on desktop */
-  @media (pointer: fine) {
-    *, a, button, [role="button"], input[type="submit"], label, select {
-      cursor: url('/cursor-default.svg') 3 2, auto !important;
-    }
-  }
-
   /* Subtle grain texture overlay */
   body::after {
     content: '';
