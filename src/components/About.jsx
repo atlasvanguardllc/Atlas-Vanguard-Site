@@ -2,10 +2,10 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const values = [
-  { title: 'Precision', desc: 'Every detail is intentionally crafted to reflect the quality of your brand.' },
-  { title: 'Strategy', desc: 'Thoughtful digital direction designed to strengthen positioning and long-term growth.' },
-  { title: 'Presence', desc: 'Sophisticated websites engineered to establish credibility and authority online.' },
-  { title: 'Performance', desc: 'Modern digital experiences optimized for speed, responsiveness, and impact.' },
+  { title: 'Founder-Led', desc: 'Every project is personally handled by the Atlas Vanguard founder — no outsourcing, no delegation.' },
+  { title: 'Brand-Obsessed', desc: 'We study your business, audience, and market before designing or writing a single element.' },
+  { title: 'No Templates', desc: 'Every website is built from scratch. 100% original work, tailored specifically to your brand.' },
+  { title: 'Built to Last', desc: 'We design for longevity — scalable, maintainable, and built to grow alongside your business.' },
 ]
 
 function FadeUp({ children, delay = 0 }) {

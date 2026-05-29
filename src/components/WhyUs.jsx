@@ -1,24 +1,27 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 
-const differentiators = [
-  'Custom-built websites tailored to your brand and goals',
-  'Refined design systems with strategy behind every detail',
-  'Premium user experiences focused on clarity and performance',
-  'Modern development optimized for speed and responsiveness',
-  'Strategic digital direction designed for long-term growth',
-  'Ongoing support built around reliability and consistency',
+const comparisons = [
+  { us: 'Custom-built from scratch',        them: 'Template or page-builder solutions' },
+  { us: 'Direct founder access',            them: 'Account managers & handoffs'        },
+  { us: 'Brand-aligned strategy',           them: 'One-size-fits-all approach'          },
+  { us: 'Ongoing support included',         them: 'Extra fees or no follow-up'          },
+  { us: 'Clear timelines & milestones',     them: 'Vague delivery windows'              },
 ]
 
-const approachCards = [
+const pillars = [
   {
-    title: 'Strategic Design',
-    desc: 'Every project begins with a deep understanding of your brand, audience, and long-term vision — ensuring every detail serves a purpose.',
+    title: 'No Templates, Ever',
+    desc: 'Every site is built from the ground up. Your brand deserves original work — not a modified theme or drag-and-drop shortcut.',
   },
   {
-    title: 'Precision Execution',
-    desc: 'From design to development, every element is intentionally crafted to deliver a refined, high-performance digital experience.',
+    title: 'Founder-Level Attention',
+    desc: "You work directly with the person building your project. No account managers, no outsourced teams, no handoffs in the middle of the work.",
+  },
+  {
+    title: 'Support After Launch',
+    desc: "We don't disappear after delivery. Maintenance, updates, and ongoing guidance are part of the partnership — not a separate invoice.",
   },
 ]
 
@@ -38,7 +41,7 @@ function FadeUp({ children, delay = 0, className = '' }) {
   )
 }
 
-function ApproachCard({ card, delay }) {
+function PillarCard({ card, delay }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
   const [hovered, setHovered] = useState(false)
@@ -49,10 +52,10 @@ function ApproachCard({ card, delay }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -4 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="p-10 relative"
+      className="p-8 relative"
       style={{
         background: hovered ? 'rgba(201,168,76,0.04)' : 'rgba(255,255,255,0.02)',
         border: `1px solid ${hovered ? 'rgba(201,168,76,0.32)' : 'rgba(255,255,255,0.07)'}`,
@@ -60,41 +63,35 @@ function ApproachCard({ card, delay }) {
         transition: 'border-color 0.45s ease, background 0.45s ease, box-shadow 0.45s ease',
       }}
     >
-      {/* Top accent rule */}
       <div
-        className="w-8 h-px mb-7"
+        className="w-6 h-px mb-6"
         style={{
           background: hovered ? 'linear-gradient(90deg, #C9A84C, #E8C97A)' : '#C9A84C',
           transition: 'background 0.4s ease',
         }}
       />
-
       <h3
-        className="font-semibold text-base tracking-[0.12em] uppercase mb-4"
+        className="font-semibold text-sm tracking-[0.12em] uppercase mb-3"
         style={{ color: hovered ? '#E8C97A' : 'rgba(255,255,255,0.88)', transition: 'color 0.4s ease' }}
       >
         {card.title}
       </h3>
+      <p className="text-white/45 text-sm leading-relaxed">{card.desc}</p>
 
-      <p className="text-white/45 text-sm leading-relaxed">
-        {card.desc}
-      </p>
-
-      {/* Gold corner accent */}
+      {/* Gold corner */}
       <div
-        className="absolute top-0 right-0 w-8 h-8 pointer-events-none"
+        className="absolute top-0 right-0 w-7 h-7 pointer-events-none"
         style={{
-          borderTop: `1px solid ${hovered ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.3)'}`,
-          borderRight: `1px solid ${hovered ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.3)'}`,
+          borderTop: `1px solid ${hovered ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.25)'}`,
+          borderRight: `1px solid ${hovered ? 'rgba(201,168,76,0.55)' : 'rgba(201,168,76,0.25)'}`,
           transition: 'border-color 0.4s ease',
         }}
       />
 
-      {/* Bottom sweep line */}
       <motion.div
         className="absolute bottom-0 left-0 h-px"
         animate={{ width: hovered ? '100%' : '0%', opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
         style={{ background: 'linear-gradient(90deg, #C9A84C, #E8C97A, transparent)' }}
       />
     </motion.div>
@@ -108,12 +105,6 @@ export default function WhyUs() {
       className="relative py-32 lg:py-40 overflow-hidden"
       style={{ background: '#080808' }}
     >
-      {/* Decorative vertical line */}
-      <div
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-64 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.3), transparent)' }}
-      />
-
       {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -134,14 +125,15 @@ export default function WhyUs() {
         </FadeUp>
 
         <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-          {/* Left column */}
+
+          {/* Left — headline + comparison table */}
           <div>
             <FadeUp delay={0.1}>
               <h2
                 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-8"
                 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
               >
-                A Higher Standard of{' '}
+                Not Every Agency{' '}
                 <span
                   style={{
                     background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
@@ -150,49 +142,71 @@ export default function WhyUs() {
                     backgroundClip: 'text',
                   }}
                 >
-                  Digital Presence.
+                  Builds Like This.
                 </span>
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.15}>
-              <p className="text-white/40 text-lg leading-relaxed mb-12">
-                Atlas Vanguard creates refined digital experiences for brands that value
-                precision, strategy, and distinction. Every project is thoughtfully designed
-                to strengthen credibility, elevate presence, and position businesses at a
-                higher level online.
+              <p className="text-white/40 text-base leading-relaxed mb-10">
+                Most agencies use templates, delegate to junior staff, and move on after launch.
+                Atlas Vanguard operates differently — with original work, direct access, and a
+                long-term commitment to your brand.
               </p>
             </FadeUp>
 
-            <div className="space-y-5">
-              {differentiators.map((item, i) => (
-                <FadeUp key={i} delay={0.2 + i * 0.07}>
-                  <div className="flex items-start gap-4">
+            {/* Comparison table */}
+            <FadeUp delay={0.2}>
+              {/* Header row */}
+              <div className="grid grid-cols-2 mb-3">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/28 pl-2">Atlas Vanguard</div>
+                <div className="text-[10px] tracking-[0.3em] uppercase text-white/20 pl-2">Typical Agency</div>
+              </div>
+
+              <div className="space-y-2">
+                {comparisons.map((row, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: '-40px' }}
+                    transition={{ duration: 0.6, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
+                    className="grid grid-cols-2 gap-3"
+                  >
+                    {/* Our column */}
                     <div
-                      className="mt-0.5 shrink-0 w-4 h-4 flex items-center justify-center"
-                      style={{ border: '1px solid rgba(201,168,76,0.4)', color: '#C9A84C' }}
+                      className="flex items-center gap-3 px-4 py-3"
+                      style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.15)' }}
                     >
-                      <Check size={10} strokeWidth={2.5} />
+                      <Check size={11} strokeWidth={2.5} style={{ color: '#C9A84C', flexShrink: 0 }} />
+                      <span className="text-white/75 text-xs leading-snug">{row.us}</span>
                     </div>
-                    <span className="text-white/55 text-sm leading-relaxed">{item}</span>
-                  </div>
-                </FadeUp>
-              ))}
-            </div>
+                    {/* Their column */}
+                    <div
+                      className="flex items-center gap-3 px-4 py-3"
+                      style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)' }}
+                    >
+                      <X size={11} strokeWidth={2} style={{ color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} />
+                      <span className="text-white/28 text-xs leading-snug">{row.them}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </FadeUp>
           </div>
 
-          {/* Right column: approach cards */}
-          <div className="space-y-6">
+          {/* Right — 3 concrete pillar cards */}
+          <div className="space-y-5">
             <FadeUp delay={0.1}>
-              <p className="text-xs tracking-[0.35em] uppercase text-white/30 mb-8">
-                Our Approach
+              <p className="text-[10px] tracking-[0.35em] uppercase text-white/28 mb-6">
+                What That Means for You
               </p>
             </FadeUp>
-
-            {approachCards.map((card, i) => (
-              <ApproachCard key={i} card={card} delay={0.2 + i * 0.12} />
+            {pillars.map((card, i) => (
+              <PillarCard key={i} card={card} delay={0.15 + i * 0.1} />
             ))}
           </div>
+
         </div>
       </div>
     </section>
