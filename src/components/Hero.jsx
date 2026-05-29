@@ -224,9 +224,9 @@ export default function Hero() {
           style={{ borderTop: '1px solid rgba(201,168,76,0.15)' }}
         >
           {[
-            'Custom Websites',
-            'Premium Design',
-            'Strategic Execution',
+            '100% Custom Built',
+            '3-Week Avg Delivery',
+            'Ongoing Support',
           ].map((label, i) => (
             <div key={i} className={`text-center px-6 ${i < 2 ? 'border-r border-white/10' : ''}`}>
               <div

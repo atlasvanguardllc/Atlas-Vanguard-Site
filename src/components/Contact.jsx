@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Mail, ArrowRight } from 'lucide-react'
+import { Mail, ArrowRight, Check } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 
 const SERVICE_ID = 'service_9mv8559'
@@ -227,7 +227,7 @@ export default function Contact() {
                   className="w-12 h-12 flex items-center justify-center mb-6"
                   style={{ border: '1px solid #C9A84C', color: '#C9A84C' }}
                 >
-                  <ArrowRight size={20} />
+                  <Check size={20} />
                 </div>
                 <h3
                   className="text-white text-xl font-semibold mb-3"
