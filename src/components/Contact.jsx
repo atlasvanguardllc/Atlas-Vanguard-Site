@@ -246,7 +246,7 @@ export default function Contact() {
                     <input
                       type="text"
                       required
-                      placeholder="John Smith"
+                      placeholder=""
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
                       style={getInputStyle('name')}
@@ -258,7 +258,7 @@ export default function Contact() {
                     <input
                       type="email"
                       required
-                      placeholder="john@company.com"
+                      placeholder=""
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       style={getInputStyle('email')}
@@ -271,7 +271,7 @@ export default function Contact() {
                 <FormField label="Company">
                   <input
                     type="text"
-                    placeholder="Your Organization"
+                    placeholder=""
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
                     style={getInputStyle('company')}
