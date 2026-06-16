@@ -9,6 +9,8 @@ import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import PageCurtain from './components/PageCurtain'
 import Process from './components/Process'
+import ScrollProgress from './components/ScrollProgress'
+import CustomCursor from './components/CustomCursor'
 
 function Home() {
   return (
@@ -28,6 +30,8 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
+      <CustomCursor />
+      <ScrollProgress />
       <PageCurtain />
       <Routes>
         <Route path="/" element={<Home />} />
