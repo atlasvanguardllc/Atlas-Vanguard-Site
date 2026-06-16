@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
+const INTERACTIVE = 'a, button, [role="button"], input, textarea, select, label'
+
 export default function CustomCursor() {
   const [visible, setVisible] = useState(false)
+  const [active, setActive] = useState(false) // hovering an interactive element
   const [isTouch, setIsTouch] = useState(false)
 
   const mouseX = useMotionValue(-100)
@@ -26,19 +29,22 @@ export default function CustomCursor() {
     const move = (e) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
-      if (!visible) setVisible(true)
+      setVisible(true)
     }
 
     const hide = () => setVisible(false)
     const show = () => setVisible(true)
+    const over = (e) => setActive(!!e.target.closest?.(INTERACTIVE))
 
     window.addEventListener('mousemove', move)
     window.addEventListener('mouseleave', hide)
     window.addEventListener('mouseenter', show)
+    window.addEventListener('mouseover', over)
     return () => {
       window.removeEventListener('mousemove', move)
       window.removeEventListener('mouseleave', hide)
       window.removeEventListener('mouseenter', show)
+      window.removeEventListener('mouseover', over)
     }
   }, [])
 
@@ -46,8 +52,20 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring */}
+      {/* Outer ring — grows and fills over interactive elements */}
       <motion.div
+        animate={{
+          scale: active ? 1.8 : 1,
+          opacity: visible ? 1 : 0,
+          backgroundColor: active ? 'rgba(201,168,76,0.10)' : 'rgba(201,168,76,0)',
+          borderColor: active ? 'rgba(232,201,122,0.8)' : 'rgba(201,168,76,0.55)',
+        }}
+        transition={{
+          scale: { type: 'spring', stiffness: 300, damping: 20 },
+          opacity: { duration: 0.3 },
+          backgroundColor: { duration: 0.25 },
+          borderColor: { duration: 0.25 },
+        }}
         style={{
           x: ringX,
           y: ringY,
@@ -62,13 +80,13 @@ export default function CustomCursor() {
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99999,
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.3s ease',
         }}
       />
 
-      {/* Inner dot */}
+      {/* Inner dot — hides when ring expands over interactive elements */}
       <motion.div
+        animate={{ opacity: visible ? (active ? 0 : 1) : 0 }}
+        transition={{ duration: 0.2 }}
         style={{
           x: dotX,
           y: dotY,
@@ -83,8 +101,6 @@ export default function CustomCursor() {
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 99999,
-          opacity: visible ? 1 : 0,
-          transition: 'opacity 0.3s ease',
         }}
       />
     </>

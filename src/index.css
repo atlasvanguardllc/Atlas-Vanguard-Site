@@ -53,4 +53,22 @@
     width: 100%;
     max-width: 100%;
   }
+
+  /* Hide the native cursor on desktop (fine pointers) so the custom gold
+     cursor takes over. Touch devices keep their default behavior, and text
+     fields keep a caret for usability. */
+  @media (pointer: fine) {
+    html,
+    a,
+    button,
+    [role="button"] {
+      cursor: none;
+    }
+
+    input,
+    textarea,
+    select {
+      cursor: text;
+    }
+  }
 }
