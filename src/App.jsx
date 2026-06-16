@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import PageCurtain from './components/PageCurtain'
 import Process from './components/Process'
+import Portfolio from './components/Portfolio'
 import ScrollProgress from './components/ScrollProgress'
 import CustomCursor from './components/CustomCursor'
 
@@ -20,6 +21,7 @@ function Home() {
       <About />
       <Services />
       <Process />
+      <Portfolio />
       <WhyUs />
       <Contact />
       <Footer />
