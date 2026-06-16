@@ -10,7 +10,6 @@ import PageCurtain from './components/PageCurtain'
 import Process from './components/Process'
 import Portfolio from './components/Portfolio'
 import ScrollProgress from './components/ScrollProgress'
-import CustomCursor from './components/CustomCursor'
 
 function Home() {
   return (
@@ -30,7 +29,6 @@ function Home() {
 export default function App() {
   return (
     <BrowserRouter>
-      <CustomCursor />
       <ScrollProgress />
       <PageCurtain />
       <Routes>
